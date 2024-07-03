@@ -34,6 +34,124 @@
 .headerDiv {
   width: 100%;
 }
+$clipbox: clipbox
+$primaryImg: url('https://cdn.pixabay.com/photo/2014/07/31/23/37/motorbike-407186_1280.jpg')
+$secondaryImg: url('https://cdn.pixabay.com/photo/2017/04/23/13/21/motocross-2253793_1280.jpg')
+$clipboxWidth: 500px
+$clipboxHeight: 600px
+$alpha: 0.8
+$draggerRadius: 30px
+$borderRadius: 10px
+
+*
+	box-sizing: border-box
+.body
+	height: 100vh
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	background: linear-gradient(to top right, rgba(#f7797d, $alpha), rgba(#FBD786, $alpha), rgba(#C6FFDD, $alpha))
+
+.#{$clipbox}
+	display: block
+	position: relative
+	height: $clipboxHeight
+	width: $clipboxWidth
+	border-radius: $borderRadius
+	box-shadow: 0 0 20px 1px rgb(60,60,60)
+	.img__container
+		height: 100%
+		width: 100%
+		border-radius: $borderRadius
+		overflow: hidden
+		position: relative
+		.primary__img, .secondary__img
+			position: absolute
+			overflow: hidden
+			background-size: $clipboxWidth auto
+			height: 100%
+			img
+				width: $clipboxWidth
+				height: 100%
+				pointer-events: none
+				object-fit: cover
+		.primary__img
+			// background-image: $primaryImg
+			width: $clipboxWidth / 2
+			z-index: 100
+		.secondary__img
+			// background-image: $secondaryImg
+			width: 100%
+			z-index: 50
+	.dragger
+		height: $draggerRadius * 2
+		width: $draggerRadius * 2
+		border-radius: 50%
+		border: calc(#{$draggerRadius} / 10) solid #ffffff
+		background-color: rgba(200,200,200, .5)
+		position: absolute
+		top: calc(50% - #{$draggerRadius})
+		left: calc(50% - #{$draggerRadius})
+		cursor: ew-resize
+		z-index: 200
+		color: #ffffff
+		display: flex
+		align-items: center
+		justify-content: center
+		font-size: $draggerRadius
+	.dragger--active
+		color: #90EE90
+		border-color: #90EE90
 
   
 </style>
+
+<script>
+const clipbox = document.querySelector(".clipbox");
+const dragger = document.querySelector(".clipbox .dragger");
+const first   = document.querySelector(".clipbox .primary__img");
+
+let drag = false;
+
+const draggerWidth = dragger.getBoundingClientRect().width;
+
+const clipboxDimensions = {
+  width: clipbox.getBoundingClientRect().width,
+  left: clipbox.getBoundingClientRect().left
+};
+
+const handleStartDrag = () => {
+  drag = true;
+  dragger.classList.add("dragger--active");
+  dragger.style.pointerEvents = "none";
+};
+
+const handleStopDrag = () => {
+  drag = false;
+  dragger.style.pointerEvents = "auto";
+  dragger.classList.remove("dragger--active");  
+  clipbox.style.cursor = "auto";
+};
+
+const handleImgReveal = e => {
+  e.preventDefault();
+  e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
+  if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
+    clipbox.style.cursor = "ew-resize";
+    dragger.style.left = e.offsetX - draggerWidth / 2 + "px";
+    first.style.width = e.offsetX + "px";
+  }
+};
+
+dragger.addEventListener("mousedown", handleStartDrag);
+dragger.addEventListener("touchstart", handleStartDrag);
+
+clipbox.addEventListener("mouseup", handleStopDrag);
+clipbox.addEventListener("touchend", handleStopDrag);
+
+clipbox.addEventListener("mousemove", handleImgReveal);
+clipbox.addEventListener("touchmove", handleImgReveal);
+  
+</script>
