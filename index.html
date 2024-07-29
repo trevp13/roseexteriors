@@ -3,6 +3,8 @@
 <head>
 <title>Rose Exteriors Cleaning</title>
 <script>
+$(document).ready(function() {
+        
 const clipbox = document.querySelector(".clipbox");
 const dragger = document.querySelector(".clipbox .dragger");
 const first   = document.querySelector(".clipbox .primary__img");
@@ -47,7 +49,7 @@ clipbox.addEventListener("touchend", handleStopDrag);
 
 clipbox.addEventListener("mousemove", handleImgReveal);
 clipbox.addEventListener("touchmove", handleImgReveal);
-  
+});
 </script>
 	
 </head>
