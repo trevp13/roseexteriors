@@ -36,7 +36,7 @@ $(document).ready(function(){
 	  e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
 	  if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
 	    clipbox.style.cursor = "ew-resize";
-	    dragger.style.left = e.offsetX - draggerWidth / 2 + "px";
+	    dragger.style.left = e.offsetX - draggerWidth + "px";
 	    first.style.width = e.offsetX + "px";
 	  }
 	};
@@ -119,8 +119,8 @@ $(document).ready(function(){
 }
 
 .dragger--active {
-	color: #90EE90;
-	border-color: #90EE90;
+	color: #000;
+	border-color: #000;
 }
 
 .row {
