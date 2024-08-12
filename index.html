@@ -48,7 +48,55 @@ clipbox.addEventListener("touchend", handleStopDrag);
 
 clipbox.addEventListener("mousemove", handleImgReveal);
 clipbox.addEventListener("touchmove", handleImgReveal);
+$(window).load(function() {
+                $('#example1').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    startPosition: 0.25,
+                    showCaption: true,
+                    captionChange: 0.5,
+                    width: 500,
+                    height: 350
+                });
 
+                $('#example2').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 60,
+                    paddingRight: 60,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+
+                $('#example3, #example4').imageReveal({
+                    barWidth: 20,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+
+                $('.example5').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+            });
 </script>
 	
 </head>
@@ -72,6 +120,14 @@ clipbox.addEventListener("touchmove", handleImgReveal);
     </div>
     </div>
   </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/jQuery-Before-After-Image-Comparison-Plugin-Image-Reveal/dist/jquery.imageReveal.js"></script>
+<link rel="stylesheet" href="https://www.jqueryscript.net/demo/jQuery-Before-After-Image-Comparison-Plugin-Image-Reveal/dist/jquery.imageReveal.min.css" />
+
+<div class="row big">
+<div id="example1" class="imageReveal"> <img src="https://www.jqueryscript.net/demo/jQuery-Before-After-Image-Comparison-Plugin-Image-Reveal/dist/demo/images/1-before.jpg" title="Before"> <img src="https://www.jqueryscript.net/demo/jQuery-Before-After-Image-Comparison-Plugin-Image-Reveal/dist/demo/images/1-after.jpg" title="After"> </div>
+</div>
 </body>
 <style>
 .headerDiv {
@@ -148,6 +204,19 @@ $borderRadius: 10px
 		color: #90EE90
 		border-color: #90EE90
 
-  
+
+.row {
+float: left;
+}
+.imageReveal {
+margin-right: 20px;
+}
+.row.small .imageReveal {
+display: inline-block;
+}
+.row.small .imageReveal-caption {
+top: auto;
+bottom: 20px;
+}
 </style>
 </html>
