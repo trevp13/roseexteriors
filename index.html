@@ -137,6 +137,11 @@ $(document).ready(function(){
 	top: auto;
 	bottom: 20px;
 }
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
 </style>
 </head>
 
@@ -148,7 +153,7 @@ $(document).ready(function(){
 
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.0/css/all.css">
 
-<div class="clipbox">
+<div class="clipbox prevent-select">
   <div class="dragger" draggable="false"><i class="fa fa-arrows-alt-h"></i></div>
   <div class="img__container">
     <div class="primary__img">
