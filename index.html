@@ -36,7 +36,7 @@ $(document).ready(function(){
 	  e.offsetX = e.offsetX || e.targetTouches[0].pageX - clipboxDimensions.left;
 	  if(drag && e.offsetX < clipboxDimensions.width && e.offsetX > 0) {
 	    clipbox.style.cursor = "ew-resize";
-	    dragger.style.left = e.offsetX - draggerWidth / 4 + "px";
+	    dragger.style.left = e.offsetX + "px";
 	    first.style.width = e.offsetX + "px";
 	  }
 	};
@@ -52,7 +52,7 @@ $(document).ready(function(){
 
         var screenWidth = $(window).width();
         $(".secondary__img img").css("max-width", screenWidth);
-	$(".primary__img img").css("width", screenWidth/2);
+	$(".primary__img").css("width", screenWidth/2);
 });
 </script>
 
