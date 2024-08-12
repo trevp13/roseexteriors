@@ -50,7 +50,58 @@ clipbox.addEventListener("mousemove", handleImgReveal);
 clipbox.addEventListener("touchmove", handleImgReveal);
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+$(window).load(function() {
+                $('#example1').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    startPosition: 0.25,
+                    showCaption: true,
+                    captionChange: 0.5,
+                    width: 500,
+                    height: 350
+                });
+
+                $('#example2').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 60,
+                    paddingRight: 60,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+
+                $('#example3, #example4').imageReveal({
+                    barWidth: 20,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+
+                $('.example5').imageReveal({
+                    barWidth: 15,
+                    touchBarWidth: 40,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    showCaption: true,
+                    startPosition: 0.5,
+                    captionChange: 0.5,
+                    width: 250,
+                    height: 250
+                });
+            });
+	
+</script>
 <script src="https://www.jqueryscript.net/demo/jQuery-Before-After-Image-Comparison-Plugin-Image-Reveal/dist/jquery.imageReveal.js">
 $(window).load(function() {
                 $('#example1').imageReveal({
