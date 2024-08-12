@@ -52,6 +52,7 @@ $(document).ready(function(){
 
         var screenWidth = $(window).width();
         $(".secondary__img img").css("max-width", screenWidth);
+	$(".primary__img img").css("max-width", screenWidth);
 	$(".primary__img").css("width", screenWidth/2);
 });
 </script>
@@ -105,7 +106,7 @@ $(document).ready(function(){
 	width: 30px;
 	border-radius: 50%;
 	border: 6px solid #ffffff;
-	background-color: rgba(200,200,200, .5);
+	background-color: #333;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -120,8 +121,9 @@ $(document).ready(function(){
 }
 
 .dragger--active {
-	color: #000;
-	border-color: #000;
+	color: #333;
+	border-color: #333;
+	background-color:#fff;
 }
 
 .row {
