@@ -49,6 +49,9 @@ $(document).ready(function(){
 	
 	clipbox.addEventListener("mousemove", handleImgReveal);
 	clipbox.addEventListener("touchmove", handleImgReveal);
+
+        var screenWidth = $(window).width();
+        $("img").css("max-width", screenWidth);
 });
 </script>
 
@@ -80,7 +83,7 @@ $(document).ready(function(){
 }
 
 .primary__img img, .secondary__img img {
-	width: 500px;
+	width: 5000px;
 	height: 100%;
 	pointer-events: none;
 	object-fit: cover;
